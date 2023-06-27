@@ -26,7 +26,8 @@
     "start": "react-scripts start",
     "server": "node server.js ",
     "fileupload": "node fileUpload.js",
-    "dev": "concurrently \"npm start\" \"npm run server\" \"npm run fileupload\""
+    "signup": "node signup.js",
+    "dev": "concurrently \"npm start\" \"npm run server\" \"npm run fileupload\" \" npm run signup\""
   },
   "eslintConfig": {
     "extends": [

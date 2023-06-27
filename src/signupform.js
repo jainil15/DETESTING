@@ -33,7 +33,7 @@ class SignUpForm extends React.Component {
 
     // Make a POST request to the API endpoint
     axios
-      .post("/signup", this.state)
+      .post("http://localhost:3003/signup", this.state)
       .then((response) => {
         // Handle the response if needed
         alert("Sign-up successful");
@@ -47,14 +47,19 @@ class SignUpForm extends React.Component {
   render() {
     return (
       <>
-        <div id="root1" className="bg-dark bg-gradient text-white w-50 m-auto">
+        <div
+          id="root1"
+          className="bg-dark bg-gradient text-white w-50 m-auto"
+        >
           <div className="container w-75 mt-5">
             <div className="display-2 form-title">Sign Up</div>
             <hr className="hr" />
             <form onSubmit={this.handleSubmit} method="POST">
               <div className="row">
                 <label htmlFor="username" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Username:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Username:
+                  </span>
                   <input
                     type="text"
                     name="username"
@@ -66,7 +71,9 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="password" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Password:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Password:
+                  </span>
                   <input
                     type="password"
                     name="password"
@@ -78,7 +85,9 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="address" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Address:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Address:
+                  </span>
                   <textarea
                     type="text"
                     name="address"
@@ -90,20 +99,41 @@ class SignUpForm extends React.Component {
                 </label>
               </div>
               <div className="row mt-2">
-                <label htmlFor="gender" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Gender:</span>
-                  <input
-                    type="text"
-                    name="gender"
-                    id="gender"
-                    onChange={this.handleChange}
-                    className="rounded-5 border-0 w-100 p-2 "
-                  />
-                </label>
+              <label htmlFor="gender" className="m-2">
+  <span className="label mb-1 ms-1 mylabel">Gender:</span>
+  <div className="d-flex justify-content-between w-50 p-2 mt-1">
+  <div>
+    <input
+      type="radio"
+      name="gender"
+      id="male"
+      value="Male"
+      checked={this.state.gender === "Male"}
+      onChange={this.handleChange}
+      className="form-check-input"
+    />
+    <label htmlFor="male" className="form-check-label">Male</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      name="gender"
+      id="female"
+      value="Female"
+      checked={this.state.gender === "Female"}
+      onChange={this.handleChange}
+      className="form-check-input"
+    />
+    <label htmlFor="female" className="form-check-label">Female</label>
+  </div>
+  </div>
+</label>
               </div>
               <div className="row mt-2">
                 <label htmlFor="phoneNumber" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Phone Number:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Phone Number:
+                  </span>
                   <input
                     type="text"
                     name="phoneNumber"
@@ -115,7 +145,9 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="email" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Email ID:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Email ID:
+                  </span>
                   <input
                     type="text"
                     name="email"
@@ -127,9 +159,11 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="birthdate" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Birthdate:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Birthdate:
+                  </span>
                   <input
-                    type="text"
+                    type="date" // Change the input type to "date"
                     name="birthdate"
                     id="birthdate"
                     onChange={this.handleChange}
@@ -139,7 +173,9 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="district" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">District:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    District:
+                  </span>
                   <input
                     type="text"
                     name="district"
@@ -151,7 +187,9 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="area" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Area:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Area:
+                  </span>
                   <input
                     type="text"
                     name="area"
@@ -163,7 +201,9 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="zipcode" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">Zip Code:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    Zip Code:
+                  </span>
                   <input
                     type="text"
                     name="zipcode"
@@ -175,7 +215,9 @@ class SignUpForm extends React.Component {
               </div>
               <div className="row mt-2">
                 <label htmlFor="state" className="m-2">
-                  <span className="label mb-1 ms-1 mylabel">State:</span>
+                  <span className="label mb-1 ms-1 mylabel">
+                    State:
+                  </span>
                   <input
                     type="text"
                     name="state"
