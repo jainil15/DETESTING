@@ -33,11 +33,14 @@ app.post('/submit-name', (req, res) => {
       return res.status(500).send("Internal Server Error");
     }
 
-    if (results.length === 0) {
+    else if (results.length === 0) {
       // Login credentials not found in the database
       return res.status(401).send("Internal Server Error");
     }
-
+    console.log("Logged in")
+    res.status(200).send("./Main");
+    
+    
     // / successful, redirect to the main page
     
   });
@@ -46,9 +49,7 @@ app.post('/submit-name', (req, res) => {
   console.log("Submitted password:", password);
   // / page
 });
-app.get('/Main', (req, res) => {
-  res.send('Welcome to the main page!');
-});
+
 
 // Start the server
 app.listen(port, () => {
