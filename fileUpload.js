@@ -3,8 +3,10 @@ const multer = require('multer');
 const mysql = require('mysql2');
 const path = require('path')
 const fs = require('fs')
+const cors = require('cors')
 
 const app = express();
+app.use(cors());
 const upload = multer({ dest: 'new_directory/' });
 
 // Create a MySQL connection
@@ -46,6 +48,6 @@ app.post('/upload', upload.single('file'), (req, res) => {
 });
 
 // Start the server
-app.listen(3001, () => {
-  console.log('Server listening on port 3001');
+app.listen(3002, () => {
+  console.log('Server listening on port 3002');
 });

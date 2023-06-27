@@ -25,7 +25,7 @@ class Login extends React.Component {
       
         // Make a POST request to the API endpoint
         axios
-          .post("/submit-name", { uid, password })
+          .post("http://localhost:3001/submit-name", { uid, password })
           .then((response) => {
             // Handle the response if needed
             alert(`Submitted uid: ${uid}\nSubmitted password: ${password}`);

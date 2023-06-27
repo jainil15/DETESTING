@@ -14,7 +14,7 @@ const Main = () => {
       formData.append("file", file);
 
       // Make a POST request to the API endpoint to upload the file
-      axios.post("/upload", formData)
+      axios.post("http://localhost:3002/upload", formData)
         .then((response) => {
           // Handle the response if needed
           console.log("File uploaded successfully");
