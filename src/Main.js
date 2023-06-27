@@ -1,44 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedFile: null
-    };
-  }
+const Main = () => {
+  const [file, setFile] = useState(null);
 
-  handleFileChange = (event) => {
-    this.setState({
-      selectedFile: event.target.files[0]
-    });
-  }
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
 
-  handleFileUpload = () => {
-    // Perform file upload logic here
-    const { selectedFile } = this.state;
-    // Use the selectedFile to upload the file to the server
-    // You can make an API call or use any file upload library
+  const handleUpload = () => {
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
 
-    // Reset the selected file
-    this.setState({
-      selectedFile: null
-    });
-  }
+      // Make a POST request to the API endpoint to upload the file
+      axios.post("/upload", formData)
+        .then((response) => {
+          // Handle the response if needed
+          console.log("File uploaded successfully");
+        })
+        .catch((error) => {
+          // Handle errors if any
+          console.error("Error uploading file:", error);
+        });
+    }
+  };
 
-  render() {
-    const { selectedFile } = this.state;
-
-    return (
-      <div>
-        <h1>Main Page</h1>
-        <div>
-          <input type="file" onChange={this.handleFileChange} />
-          <button onClick={this.handleFileUpload} disabled={!selectedFile}>Upload File</button>
-        </div>
+  return (
+    <div>
+      
+      <div className="container text-white">
+      <div className="text-white display-4 mt-3 mb-3">Upload UID Documents</div>
+      <div className="mt-4"><label htmlFor="fileUploader" className="mb-1" >ENTER FILE</label></div>
+      <input type="file" className="form-control" id="fileUploader" onChange={handleFileChange} />
+      <div className="mt-4"><button onClick={handleUpload} className="btn btn-warning">Upload</button></div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Main;
