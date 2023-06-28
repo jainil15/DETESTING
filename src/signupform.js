@@ -99,35 +99,35 @@ class SignUpForm extends React.Component {
                 </label>
               </div>
               <div className="row mt-2">
-              <label htmlFor="gender" className="m-2">
-  <span className="label mb-1 ms-1 mylabel">Gender:</span>
-  <div className="d-flex justify-content-between w-50 p-2 mt-1">
-  <div>
-    <input
-      type="radio"
-      name="gender"
-      id="male"
-      value="Male"
-      checked={this.state.gender === "Male"}
-      onChange={this.handleChange}
-      className="form-check-input"
-    />
-    <label htmlFor="male" className="form-check-label">Male</label>
-  </div>
-  <div>
-    <input
-      type="radio"
-      name="gender"
-      id="female"
-      value="Female"
-      checked={this.state.gender === "Female"}
-      onChange={this.handleChange}
-      className="form-check-input"
-    />
-    <label htmlFor="female" className="form-check-label">Female</label>
-  </div>
-  </div>
-</label>
+                <label htmlFor="gender" className="m-2">
+                  <span className="label mb-1 ms-1 mylabel">Gender:</span>
+                  <div className="d-flex justify-content-between w-50 p-2 mt-1">
+                    <div>
+                      <input
+                        type="radio"
+                        name="gender"
+                        id="male"
+                        value="Male"
+                        checked={this.state.gender === "Male"}
+                        onChange={this.handleChange}
+                        className="form-check-input"
+                      />
+                      <label htmlFor="male" className="form-check-label">Male</label>
+                    </div>
+                    <div>
+                      <input
+                        type="radio"
+                        name="gender"
+                        id="female"
+                        value="Female"
+                        checked={this.state.gender === "Female"}
+                        onChange={this.handleChange}
+                        className="form-check-input"
+                      />
+                      <label htmlFor="female" className="form-check-label">Female</label>
+                    </div>
+                  </div>
+                </label>
               </div>
               <div className="row mt-2">
                 <label htmlFor="phoneNumber" className="m-2">

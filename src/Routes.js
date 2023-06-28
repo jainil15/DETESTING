@@ -10,7 +10,7 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/L" component={Login} />
+          <Route exact path="Login" component={Login} />
           <Route exact path="/Main" component={Main} />
           <Route exact path="/Sign-up" component={SignUpForm} />
         </Switch>

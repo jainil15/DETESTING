@@ -22,9 +22,9 @@ app.post('/upload', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
-
+  // console.log(req)
   const file = req.file;
-  
+  const uid = req.body.uid;
   const originalName = file.originalname;
   const extension = path.extname(originalName);
   const fileName = file.filename
@@ -32,8 +32,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
   const fileSize = file.size;
   const newFilePath = path.join('new_directory/', fileName + extension);
   fs.renameSync(filePath, newFilePath);
-  const uid = "1234"
-  // Store the file details in the database
+  
   const sql = 'INSERT INTO files (uid, original_name, file_name, file_path, file_size) VALUES (?,?, ?, ?, ?)';
   const values = [uid, originalName, fileName, filePath, fileSize];
 
@@ -47,7 +46,6 @@ app.post('/upload', upload.single('file'), (req, res) => {
   });
 });
 
-// Start the server
 app.listen(3002, () => {
   console.log('Server listening on port 3002');
 });

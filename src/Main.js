@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Main = () => {
     const [file, setFile] = useState(null);
@@ -12,8 +13,9 @@ const Main = () => {
         if (file) {
             const formData = new FormData();
             formData.append("file", file);
-
-            // Make a POST request to the API endpoint to upload the file
+            formData.append("uid", Cookies.get("uid"))
+            console.log(formData)
+            
             axios
                 .post("http://localhost:3002/upload", formData)
                 .then((response) => {

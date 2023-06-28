@@ -2,12 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(cors());
+app.use(cookieParser())
 const port = 3001;
 
-// JSON body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -20,7 +21,6 @@ const connection = mysql.createConnection({
 });
 
 
-// Form submission
 app.post('/submit-name', (req, res) => {
   const { uid, password } = req.body
 
@@ -34,24 +34,20 @@ app.post('/submit-name', (req, res) => {
     }
 
     else if (results.length === 0) {
-      // Login credentials not found in the database
       return res.status(401).send("Internal Server Error");
     }
-    console.log("Logged in")
+    console.log("Logged in");
     res.status(200).send("./Main");
     
     
-    // / successful, redirect to the main page
     
   });
 
   console.log('Submitted uid:', uid);
   console.log("Submitted password:", password);
-  // / page
 });
 
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });

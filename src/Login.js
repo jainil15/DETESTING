@@ -8,6 +8,7 @@ import axios from "axios";
 import SignUpForm from "./signupform";
 import { Link, redirect } from "react-router-dom";
 import {  Redirect } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 class Login extends React.Component {
   
@@ -31,19 +32,21 @@ class Login extends React.Component {
       
         const { uid, password } = this.state;
         
-        // Make a POST request to the API endpoint
+        // post
         axios
           .post("http://localhost:3001/submit-name", { uid, password })
           .then((response) => {
             window.location.href = "/Main"
             console.log(response.data)
-
+            Cookies.set("uid", uid, {
+              expires: 7,
+            });
             
             alert(`Submitted uid: ${uid}\nSubmitted password: ${password}`);
             
           })
           .catch((error) => {
-            // Handle errors if any
+            //errorss
             console.error("Error submitting name:", error);
           });
       }
