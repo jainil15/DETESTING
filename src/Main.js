@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Link, redirect } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
 const Main = () => {
     const [file, setFile] = useState(null);
@@ -50,7 +51,12 @@ const Main = () => {
 
     return (
         <div>
-            <div className="container text-white">
+        
+            <div className="container text-white p-1">
+            <div className="display-6">
+                UID : {Cookies.get("uid")}
+            </div>
+            <hr className="hr" />
                 <div className="text-white display-4 mt-3 mb-3">
                     Upload UID Documents
                 </div>
