@@ -49,7 +49,7 @@ class SignUpForm extends React.Component {
       <>
         <div
           id="root1"
-          className="bg-dark bg-gradient text-white w-50 m-auto"
+          className="bg-dark bg-gradient text-white w-50 m-auto p-3"
         >
           <div className="container w-75 mt-5">
             <div className="display-2 form-title">Sign Up</div>
@@ -92,7 +92,7 @@ class SignUpForm extends React.Component {
                     type="text"
                     name="address"
                     id="address"
-                    rows={10}
+                    rows={5}
                     onChange={this.handleChange}
                     className="rounded-5 border-0 w-100 p-2 "
                   />

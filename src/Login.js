@@ -37,7 +37,7 @@ class Login extends React.Component {
           .then((response) => {
             window.location.href = "/Main"
             console.log(response.data)
-            // Handle the response if needed
+
             
             alert(`Submitted uid: ${uid}\nSubmitted password: ${password}`);
             
@@ -52,7 +52,7 @@ class Login extends React.Component {
     render() {
       return (
         <>
-          <div id="root1" className="bg-dark bg-gradient text-white w-50 m-auto">
+          <div id="root1" className="bg-dark bg-gradient text-white w-50 m-auto p-3">
             <div className="container w-75 mt-5">
               <div className="display-2 form-title">Login</div>
               <hr className="hr" />
@@ -90,7 +90,7 @@ class Login extends React.Component {
                     <input
                       type="submit"
                       defaultValue="login"
-                      value={"login"}
+                      value={"Login"}
                       className="btn btn-primary submit-btn rounded-5"
                     />
                   </div>

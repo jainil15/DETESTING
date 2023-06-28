@@ -15,6 +15,9 @@
   background-color: #60a4b7 !important;
   font-size: 1.1rem !important;
 }
+.logsin-btns input:hover {
+  background-color: blue !important;
+}
 @media only screen and (min-width: 600px) {
   .container {
       width: 40rem !important;
