@@ -18,6 +18,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "fs": "0.0.1-security",
+    "js-cookie": "^3.0.5",
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.4.2",
@@ -33,6 +34,7 @@
     "server": "node server.js ",
     "fileupload": "node fileUpload.js",
     "signup": "node signup.js",
+    "startservers": "concurrently \"node server.js\" \"node signUp.js\" \"node fileUpload.jsg\"",
     "dev": "concurrently \"npm start\" \"npm run server\" \"npm run fileupload\" \" npm run signup\""
   },
   "eslintConfig": {
@@ -54,6 +56,6 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.2"
   }
 }
